@@ -30,6 +30,10 @@ int main()
 
 int main()
 {
+
+
+
+  //JAJAJAok
   int mayus = 0,men = 0   ;
   string dat    ;
   cin>>dat    ;
