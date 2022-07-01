@@ -1,1 +1,5 @@
 Python
+.dart_tool
+.packages
+pubspec.lock*
+.vscode/*
