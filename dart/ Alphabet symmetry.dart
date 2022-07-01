@@ -23,25 +23,47 @@ Alternate capitalization
 import "package:test/test.dart";
 
 // version 1
+// List<int> solve(List<String> arr) {
+//   //RegExp exp = new RegExp(r'[a]');
+//   List<int> result = [];
 
-List<int> solve(List<String> arr) {
-  //RegExp exp = new RegExp(r'[a]');
-  List<int> result = [];
-
-  for (var item in arr) {
+//   for (var item in arr) {
     
-    List<String> strToArray = item.toLowerCase().split('');
-    int cont =  0;
+//     List<String> strToArray = item.toLowerCase().split('');
+//     int cont =  0;
 
-    for (var i = 0; i < strToArray.length ; i++) {
-      var valueCharacterOnPosition = String.fromCharCode(i + 97);
-      if(strToArray[i] == valueCharacterOnPosition) cont++;
-    }
-    result.add(cont);
+//     for (var i = 0; i < strToArray.length ; i++) {
+//       var valueCharacterOnPosition = String.fromCharCode(i + 97);
+//       if(strToArray[i] == valueCharacterOnPosition) cont++;
+//     }
+//     result.add(cont);
+//   }
+
+
+//   return result;
+// }
+
+// version 2
+List<int> solve(List<String> arr) {
+  const String alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  List <int> result = [];
+
+  for (var str in arr) {
+    var count = 0;
+    str
+    .toLowerCase()
+    .split('')
+    .asMap()
+    .entries
+    .fold(0, (previousValue, element) => {
+      if(element.key == alphabet.indexOf(element.value)) count++,
+    });
+
+    result.add(count);
   }
 
-
   return result;
+
 }
 
 void main() {
