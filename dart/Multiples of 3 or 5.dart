@@ -15,16 +15,26 @@ Courtesy of projecteuler.net (Problem 1)
 import "package:test/test.dart";
 
 //version 1
+// int solution(int n) {
+//   // your code here
+//   int sumTotal = 0;
+//   for (var i = 1; i < n ;i++) {
+//     if(i % 3 == 0 && i % 5 == 0){
+//       sumTotal += i;
+//     }
+//     else if(i % 3 == 0 || i % 5 == 0){
+//       sumTotal += i;
+//     }
+//   }
+//   return sumTotal;
+// }
+
+//version2
 int solution(int n) {
   // your code here
   int sumTotal = 0;
   for (var i = 1; i < n ;i++) {
-    if(i % 3 == 0 && i % 5 == 0){
-      sumTotal += i;
-    }
-    else if(i % 3 == 0 || i % 5 == 0){
-      sumTotal += i;
-    }
+    sumTotal += i % 3 == 0 || i % 5 == 0 ? i : 0;
   }
   return sumTotal;
 }
