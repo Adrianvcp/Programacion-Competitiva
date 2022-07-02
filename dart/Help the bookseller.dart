@@ -64,6 +64,7 @@ import "package:test/test.dart";
 // }
 
 //version2 
+
 String stockSummary(List<String> lstOfArt, lstOf1stLetter) {
     // your code
     if(lstOfArt.length == 0 || lstOf1stLetter == 0) return '';
@@ -78,7 +79,6 @@ String stockSummary(List<String> lstOfArt, lstOf1stLetter) {
         letterWithSumatorie[firstLetter] = valueOld + valueNew;
       }
     }
-
 
     return lstOf1stLetter.map((element) => 
       "(${element} : ${letterWithSumatorie[element] == null ? 0:letterWithSumatorie[element]})"
