@@ -20,6 +20,7 @@ import "package:test/test.dart";
 // => 3* [2] - > 2* [1] -> 1* 1
 // => 3* [2] - > 2* 1
 // => 3* 2 = 6
+//version2
 int factorial(int n) {
   return n == 0 ? 1 : n * factorial(n - 1);
 }
