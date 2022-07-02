@@ -16,33 +16,21 @@ Return the result as String
  */
 import "package:test/test.dart";
 
-//3 ->. 3* [2] - > 2* [1] -> 1* [0] 
-  // => 3* [2] - > 2* [1] -> 1* 1
-  // => 3* [2] - > 2* 1
-  // => 3* 2 = 6
-int factorial(int n){
-  if(n == 0){
-    return 1;
-  }
-  return n * factorial(n-1);
+//3 ->. 3* [2] - > 2* [1] -> 1* [0]
+// => 3* [2] - > 2* [1] -> 1* 1
+// => 3* [2] - > 2* 1
+// => 3* 2 = 6
+int factorial(int n) {
+  return n == 0 ? 1 : n * factorial(n - 1);
 }
 
 String strong(int n) {
-  List<String> nToArray = n.toString().split('');
-  int sum = 0;
-
-  for (var item in nToArray) {
-    // print(item);
-    // print(sum);
-    int value = int.parse(item);
-    //3 -> 1*2*3
-    sum += factorial(value);
-    // print(sum);
-    // print("------");
-  }
-  
-
-  return sum == n ? "STRONG!!!!" : "Not Strong !!";
+  int sumTotal = n
+      .toString()
+      .split('')
+      .map((element) => factorial(int.parse(element)))
+      .fold(0, (start, end) => start + end);
+  return sumTotal == n ? "STRONG!!!!" : "Not Strong !!";
 }
 
 void main() {
