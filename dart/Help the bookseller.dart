@@ -34,33 +34,55 @@ import 'dart:math' as math;
 import "package:test/test.dart";
 
 //version 1
+// String stockSummary(List<String> lstOfArt, lstOf1stLetter) {
+//     // your code
+//     if(lstOfArt.length == 0) return '';
+//     var letterWithSumatorie = Map();
+//     for (var item in lstOfArt) {
+//       String firstLetter = item[0];
+//       if(!letterWithSumatorie.containsKey(firstLetter)){
+//         int value = int.parse(item.split(' ')[1]);
+//         final newKey = <String, int>{item[0]:value};
+//         letterWithSumatorie.addEntries(newKey.entries);
+//       }else{
+//         int valueOld = letterWithSumatorie[firstLetter];
+//         int valueNew = int.parse(item.split(' ')[1]);
+//         letterWithSumatorie[firstLetter] = valueOld + valueNew;
+//       }
+//     }
+//     String result = "";
+//     for (var item in lstOf1stLetter) {
+//       letterWithSumatorie.containsKey(item) ? null: letterWithSumatorie.addAll({item:0});
+
+//       result += "($item : ${letterWithSumatorie[item]})";
+//       if(item != lstOf1stLetter.last){ result += " - ";}
+//     }
+
+
+//     print(result);
+//     return result;
+// }
+
+//version2 
 String stockSummary(List<String> lstOfArt, lstOf1stLetter) {
     // your code
-    if(lstOfArt.length == 0) return '';
+    if(lstOfArt.length == 0 || lstOf1stLetter == 0) return '';
     var letterWithSumatorie = Map();
     for (var item in lstOfArt) {
       String firstLetter = item[0];
+      int valueNew = int.parse(item.split(' ')[1]);
       if(!letterWithSumatorie.containsKey(firstLetter)){
-        int value = int.parse(item.split(' ')[1]);
-        final newKey = <String, int>{item[0]:value};
-        letterWithSumatorie.addEntries(newKey.entries);
+        letterWithSumatorie.addAll({item[0]:valueNew});
       }else{
         int valueOld = letterWithSumatorie[firstLetter];
-        int valueNew = int.parse(item.split(' ')[1]);
         letterWithSumatorie[firstLetter] = valueOld + valueNew;
       }
     }
-    String result = "";
-    for (var item in lstOf1stLetter) {
-      letterWithSumatorie.containsKey(item) ? null: letterWithSumatorie.addAll({item:0});
-
-      result += "($item : ${letterWithSumatorie[item]})";
-      if(item != lstOf1stLetter.last){ result += " - ";}
-    }
 
 
-    print(result);
-    return result;
+    return lstOf1stLetter.map((element) => 
+      "(${element} : ${letterWithSumatorie[element] == null ? 0:letterWithSumatorie[element]})"
+    ).join(" - ");
 }
 
 
