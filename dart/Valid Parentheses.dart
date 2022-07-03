@@ -18,25 +18,34 @@ Along with opening (() and closing ()) parenthesis, input may contain any valid 
 import "package:test/test.dart";
 
 //version 1
-bool isValid(String expression){
+// bool isValid(String expression){
 
-  String newExpression = expression.replaceAll('()','');
-  if (expression == newExpression){
-    if(expression == "()" || expression == '') return true;
-    else return false;
-  }
-  else {
-    if(isValid(newExpression)){
-      return true;
-    }else{
-      return false;
-    }
-  }
-}
+//   String newExpression = expression.replaceAll('()','');
+//   if (expression == newExpression){
+//     if(expression == "()" || expression == '') return true;
+//     else return false;
+//   }
+//   else {
+//     if(isValid(newExpression)){
+//       return true;
+//     }else{
+//       return false;
+//     }
+//   }
+// }
 
+//version 2
 bool validParentheses(String braces) {
-  return isValid(braces);
+  while(braces.contains('()')){
+    braces = braces.replaceAll('()', '');
+  }
+  return braces.isEmpty;
 }
+
+// bool validParentheses(String braces) {
+//   return isValid(braces);
+// }
+
 
 void tester(String str, bool exp) => test("Testing for '$str'", () => expect(validParentheses(str), equals(exp)));
 void main() {
